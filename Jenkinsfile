@@ -6,7 +6,7 @@ pipeline {
                 //Download docker compose file from repo
                 sh 'curl --output docker-compose.yml --url https://raw.githubusercontent.com/testproject-io/python-sdk/master/.github/ci/docker-compose.yml'
                 // Verify we use the updated latest 0.63.6 at least
-                sh 'docker pull testproject/agent:latest'
+                sh "${tool 'docker'} pull testproject/agent:latest"
                 // Remove if exists
                 sh 'docker-compose down'
                 sh 'docker-compose -f docker-compose.yml up -d'
