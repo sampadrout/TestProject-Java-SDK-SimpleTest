@@ -8,8 +8,10 @@ pipeline {
                 // Verify we use the updated latest 0.63.6 at least
                 sh "${tool 'Docker'} pull testproject/agent:latest"
                 // Remove if exists
-                sh "${tool 'Docker-compose'} down"
-                sh "${tool 'Docker-compose'} -f docker-compose.yml up -d"
+                withEnv(["PATH=$PATH:~/.local/bin/docker-compose"]){
+                    sh 'docker-compose down'
+                    sh 'docker-compose -f docker-compose.yml up -d'
+                }
             }
         }
         stage('Run Test'){
