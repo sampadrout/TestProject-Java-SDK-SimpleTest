@@ -1,9 +1,5 @@
 pipeline {
     agent any
-    environment {
-        TP_DEV_TOKEN = credentials('71tH-tyQRbWL-gZCfrhZWBEPha_v-AGyu1aJGwBnQEY1')
-        TP_API_KEY = credentials('Ho02kNu43ebT4d_MLk7RqKhSxh15YnWLGy3YAK7DKj41')
-    }
     stages {
         stage('Run Agent on docker'){
             steps {
