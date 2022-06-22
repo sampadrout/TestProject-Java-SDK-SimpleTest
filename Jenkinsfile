@@ -15,7 +15,8 @@ pipeline {
                 sh 'docker-compose down'
                 sh 'docker-compose -f docker-compose.yml up -d'
             }
-        }        stage('Run Test') {
+        }
+        stage('Run Test') {
             steps {
                 script {
                     // Extra wait for agent on docker become a ready
