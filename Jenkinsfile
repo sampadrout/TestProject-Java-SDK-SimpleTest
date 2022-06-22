@@ -5,7 +5,6 @@ pipeline {
             steps {
                 //Download docker compose file from repo
                 // Verify we use the updated latest 0.63.6 at least
-                sh "${tool 'Docker'} pull testproject/agent:latest"
                 // Remove if exists
                 withEnv(["PATH=$PATH:/usr/local/bin"]){
                     sh 'docker-compose down'
